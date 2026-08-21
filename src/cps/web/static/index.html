@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PULSE — Client & Prospect Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <header class="top">
+      <div class="brand-block">
+        <p class="brand">PULSE</p>
+        <p class="tagline">Living summaries across the private / public boundary</p>
+      </div>
+      <div class="live" title="Auto-refreshing">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span id="live-label">Listening</span>
+      </div>
+    </header>
+
+    <section class="meters" id="meters" aria-label="System overview">
+      <!-- filled by app.js -->
+    </section>
+
+    <main class="shell">
+      <aside class="rail" aria-label="Entities">
+        <h2 class="rail-title">Entities</h2>
+        <ul id="entity-list" class="entity-list"></ul>
+      </aside>
+
+      <section class="stage" id="stage" aria-live="polite">
+        <div class="empty" id="empty-state">
+          <p>Select an entity to inspect private and public intelligence.</p>
+        </div>
+
+        <div class="detail hidden" id="detail">
+          <header class="entity-head">
+            <div>
+              <h1 id="entity-name">—</h1>
+              <p class="entity-meta" id="entity-meta"></p>
+            </div>
+            <p class="importance" id="entity-importance"></p>
+          </header>
+
+          <div class="zones">
+            <article class="zone zone-private">
+              <header class="zone-head">
+                <span class="zone-label">Private zone</span>
+                <span class="zone-hint">CRM · meetings · portfolio</span>
+              </header>
+              <p class="summary" id="private-summary"></p>
+            </article>
+            <div class="boundary" aria-hidden="true">
+              <span>boundary</span>
+            </div>
+            <article class="zone zone-public">
+              <header class="zone-head">
+                <span class="zone-label">Public zone</span>
+                <span class="zone-hint">sanitized context only</span>
+              </header>
+              <p class="summary" id="public-summary"></p>
+            </article>
+          </div>
+
+          <section class="stream-section">
+            <h2>What changed</h2>
+            <ol class="stream" id="activity-stream"></ol>
+          </section>
+
+          <section class="split-meta">
+            <div>
+              <h3>Portfolio snapshot</h3>
+              <div id="portfolio" class="meta-block"></div>
+            </div>
+            <div>
+              <h3>Open questions</h3>
+              <div id="questions" class="meta-block"></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>Display-only insight · fully local</span>
+      <span id="clock"></span>
+    </footer>
+
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>
